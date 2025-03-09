@@ -37,3 +37,8 @@ graph= ggplot(weekdayCount, aes(x=Var1, y=Freq)) +
         xlab("Day of the Week") + ylab("Total Domestic Crimes") +
         ggtitle("Domestic Crimes in the City of Chicago Since 2001")
 graph
+
+ggplot(weekdayCount, aes(x = Var1, y = Freq)) +
+  geom_line(aes(group = 1), color = "red") +
+  labs(title = "Domestic Crime Count by Weekday", x = "Weekday", y = "Count")
+graph
