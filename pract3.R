@@ -41,6 +41,11 @@ graph_1 = ggplot(weekday_hour_counts, aes(x = Time, y = Frequency, color = Weekd
           ggtitle("Frequency of Domestic Crimes by Hour and Weekday")
 graph_1
 
+graph_1 = ggplot(weekday_hour_counts, aes(x = Time, y = Frequency, color = Weekday)) +
+            geom_line(size = 1) +
+            labs(title = "Domestic Crime Frequency by Weekday and Hour", x = "Hour", y = "Frequency")
+graph_1
+
 # Create a group for weekends
 domestic$WeekdayGroup = ifelse(domestic$Weekday %in% c("Saturday", "Sunday"), "Weekend", domestic$Weekday)
 weekday_hour_counts = domestic %>% group_by(WeekdayGroup, Time) %>%
@@ -55,4 +60,9 @@ graph_2 = ggplot(weekday_hour_counts, aes(x = Time, y = Frequency, color = Weekd
                 xlab("Hour of the Day") + ylab("Frequency of Domestic Crimes") +
                 ggtitle("Frequency of Domestic Crimes by Hour and Day Type")
 print("Graph 2 displayed")
+graph_2
+
+graph_2 = ggplot(weekday_hour_counts, aes(x = Time, y = Frequency, color = WeekdayGroup)) +
+            geom_line(size = 1) +
+            labs(title = "Domestic Crime Frequency by Weekday Group and Hour", x = "Hour", y = "Frequency")
 graph_2
